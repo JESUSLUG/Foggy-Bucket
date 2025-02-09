@@ -1,4 +1,9 @@
 # ssfr-aws-lab
+
+El laboratorio se ejecuta con 
+  ```bash
+docker-compose up -d 
+  ```
 ---
 
 ### **1. Reconocimiento**
