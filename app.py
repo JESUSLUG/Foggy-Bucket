@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-# Credenciales de AWS (las mismas que estás utilizando en LocalStack)
+# Credenciales de AWS (las mismas que se estan utilizando en LocalStack)
 AWS_CREDENTIALS = {
     "AccessKeyId": "test",
     "SecretAccessKey": "test",
