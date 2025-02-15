@@ -3,10 +3,11 @@ import requests
 
 app = Flask(__name__)
 
-# Credenciales de AWS (las mismas que se estan utilizando en LocalStack)
-AWS_CREDENTIALS = {
-    "AccessKeyId": "test",
-    "SecretAccessKey": "test",
+# Credenciales de AWS (las mismas que estás utilizando en LocalStack, este apartado ahora es mas pistas sobre el bucket)
+AWS_CREDENTIALS = { 
+    "Bucket": "secrect-bucket-challenge/user.txt",
+    "AccessKeyId": "AKxxxxxxxxx",
+    "SecretAccessKey": "wJxxxxxxxxxxx",
     "Token": "test",
     "Region": "us-east-1"
 }
@@ -40,3 +41,5 @@ def metadata():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
+
+
