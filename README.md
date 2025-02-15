@@ -75,20 +75,23 @@ Con las credenciales en mano puedes interactúa con los servicios de AWS (LocalS
   ```
 - Observa que hay un archivo llamado `flag.txt`.
 
-#### **Paso 3: Descargar la flag**
-- Usa el siguiente comando para descargar el archivo `flag.txt`:
-  ```bash
-  aws --endpoint-url=http://34.51.13.20:4566 s3 cp s3://secret-bucket-challenge/flag.txt .
-  ```
-- Lee el contenido del archivo:
-  ```bash
-  cat flag.txt
-  ```
-- La bandera es:
-  ```
-  FLAG{Eres_Todo_Un_Pentester_Cloud_By_AHAU}
-  ```
+### **Paso 3: Listar las instancias EC2**  
+
+1. Ver las instancias EC2 ejecutando el siguiente comando:  
+
+   ```bash
+   aws --endpoint-url=http://34.51.13.20:4566 ec2 describe-instances \
+     --query "Reservations[*].Instances[*].Tags[?Key=='Name'].Value" \
+     --output text
+   ```
+
+2. La bandera es el nombre de la instancia encontrada:  
+
+   ```
+   FEMEC_Pentester_Cloud_AHAU
+   ```
 
 ---
+
 
 By M0r0k0
