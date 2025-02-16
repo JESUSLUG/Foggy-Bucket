@@ -3,10 +3,10 @@ import requests
 
 app = Flask(__name__)
 
-    # Ignorar no funciona, dejemos que devuelva las credenciales reales .. 
+    # Credenciales falsas pero pista para acceder al bucket
 
 AWS_CREDENTIALS = """AWS_CREDENTIALS = { 
-    "Bucket": "secrect-bucket-challenge/user.txt",
+    "Bucket": "secrect-bucket-challenge/users.txt",
     "AccessKeyId": "AKxxxxxxxxx",
     "SecretAccessKey": "wJxxxxxxxxxxx",
     "Token": "test",
