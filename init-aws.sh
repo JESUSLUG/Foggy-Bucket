@@ -1,8 +1,8 @@
 #!/bin/bash 
 
 # Variables del ec2 y s3
-BUCKET_NAME="secret-bucket-challenge"
-EC2_INSTANCE_NAME="ec2-instance-challenge"
+BUCKET_NAME="bucket-ahau-yucatan"
+EC2_INSTANCE_NAME="FEMEC_Pentester_Cloud_AHAU"
 SECURITY_GROUP_NAME="default"
 VPC_ID="vpc-12345678" 
 
