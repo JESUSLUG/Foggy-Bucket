@@ -6,7 +6,7 @@ app = Flask(__name__)
     # Credenciales falsas pero pista para acceder al bucket
 
 AWS_CREDENTIALS = """AWS_CREDENTIALS = { 
-    "Bucket": "secrect-bucket-challenge/users.txt",
+    "Bucket": "bucket-ahau-yucatan/users.txt",
     "AccessKeyId": "AKxxxxxxxxx",
     "SecretAccessKey": "wJxxxxxxxxxxx",
     "Token": "test",
