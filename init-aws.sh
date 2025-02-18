@@ -2,7 +2,7 @@
 
 # Variables del ec2 y s3
 BUCKET_NAME="bucket-ahau-yucatan"
-EC2_INSTANCE_NAME="FEMEC_Pentester_Cloud_AHAU"
+EC2_INSTANCE_NAME="FEMEC_Eres_Todo_Un_Cloud_Pentester_By_AHAU"
 SECURITY_GROUP_NAME="default"
 VPC_ID="vpc-12345678" 
 
@@ -15,7 +15,7 @@ echo "[*] Creando archivo users.txt y subiéndolo al bucket..."
 echo "- AWS_DEFAULT_REGION=us-east-1" > users.txt
 echo "- AWS_ACCESS_KEY_ID=AKIAAHAU7EXAMPLE12345" >> users.txt
 echo "- AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7AHAUENG/bPxRfiCYEXAMPLEKEY" >> users.txt
-echo "- Validación del nombre temporal de la instancia EC2, confirmar con el administrador." >> users.txt
+echo "- Notas personales: Validar el nombre y de la instancia EC2, alguien la cambio y no aviso, es un nombre raro, confirmar con el administrador Eduardo L que sucedio." >> users.txt
 echo "- Consultar con el siguiente comando:" >> users.txt
 awslocal s3 cp users.txt s3://$BUCKET_NAME/
 
@@ -51,7 +51,7 @@ INSTANCE_ID=$(awslocal ec2 run-instances \
     --key-name my-key \
     --security-group-ids $SECURITY_GROUP_ID \
     --subnet-id $SUBNET_ID \
-    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=FEMEC_Pentester_Cloud_AHAU}]" \
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=FEMEC_Eres_Todo_Un_Cloud_Pentester_By_AHAU}]" \
     --query 'Instances[0].InstanceId' --output text)
 
 # Verificar si la creación de la instancia fue exitosa
@@ -76,4 +76,3 @@ fi
 echo "[*] Instancia EC2 está en estado running."
 
 echo "[*] Proceso completado."
-    
