@@ -15,8 +15,8 @@ echo "[*] Creando archivo users.txt y subiéndolo al bucket..."
 echo "- AWS_DEFAULT_REGION=us-east-1" > users.txt
 echo "- AWS_ACCESS_KEY_ID=AKIAAHAU7EXAMPLE12345" >> users.txt
 echo "- AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7AHAUENG/bPxRfiCYEXAMPLEKEY" >> users.txt
-echo "- Notas personales: Validar el nombre y de la instancia EC2, alguien la cambio y no aviso, es un nombre raro, confirmar con el administrador Eduardo L que sucedio." >> users.txt
-echo "- Consultar con el siguiente comando:" >> users.txt
+echo "- Notas personales: Validar el nombre y de la instancia EC2, alguien hizo cambios y no aviso, es un nombre raro, confirmar con el administrador Eduardo L que sucedio." >> users.txt
+echo "- NO OLVIDAR Consultar con el siguiente comando:" >> users.txt
 awslocal s3 cp users.txt s3://$BUCKET_NAME/
 
 # Verificar si el grupo de seguridad 'default' ya existe
