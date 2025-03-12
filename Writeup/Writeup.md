@@ -1,7 +1,11 @@
 #### **Paso 1: Analizar**
 - Accede a la aplicación en `http://34.51.13.20:8080/`.
 - Observa que hay un formulario que permite ingresar una URL y verificar su contenido.
-- haz un escaneo de directorios
+- Este ultimo es vulnerable a Server-Side Request Forgery (SSRF)
+- En el URL checker, ponermos http://169.254.169.254/latest/meta-data/ lo que comunmente es el vector de entrada de esta vuln.
+- Al acceder nos da la siguiente pista
+  ![image](https://github.com/user-attachments/assets/07ee8a90-8731-41e3-9f2c-895f4c3673f4)
+
 
 
 #### **Paso 2: Identificar la vulnerabilidad**
@@ -24,7 +28,7 @@ Una vez confirmada la vulnerabilidad, el pentester explota el SSRF para obtener 
 #### **Paso 1: Obtener credenciales de AWS**
 - Ingresa la URL del servicio de metadata de AWS en el formulario:
   ```
-  http://34.51.13.20:8080/latest/meta-data/iam/security-credentials/
+  http://34.51.13.20:4566/bucket-ahau-yucatan/users.txt
   ```
 - La aplicación devuelve las credenciales en formato JSON:
   ```json
