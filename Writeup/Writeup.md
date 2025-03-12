@@ -1,4 +1,4 @@
-#### **Paso 1: Analizar**
+#### **Paso 1**
 - Accede a la aplicación en `http://34.51.13.20:8080/`.
 - Observa que hay un formulario que permite ingresar una URL y verificar su contenido.
 - Este ultimo es vulnerable a Server-Side Request Forgery (SSRF)
@@ -9,18 +9,15 @@
 
 
 
-#### **Paso 2: Identificar la vulnerabilidad**
-- Sospecha que la aplicación puede ser vulnerable a **Server-Side Request Forgery (SSRF)** porque toma una URL ingresada por el usuario y hace una solicitud HTTP a esa URL.
-- Para confirmar, intenta acceder a recursos internos, como:
-  - `http://localhost:8080` (la propia aplicación).
-  - `http://127.0.0.1:8080` (alternativa a localhost).
-  - `http://34.51.13.20:8080/latest/meta-data/` (el servicio de metadata simulado en la aplicación).
+#### **Paso 2**
+- Vemos que nos dice que hay un bucket, en "Bucket": "bucket-ahau-yucatan/users.txt
+- Este se aloja en el puerto 4566, en especifico http://34.51.13.20:4566/bucket-ahau-yucatan/users.txt
+- al acceder vemos estas credenciales
 
-#### **Paso 3: Confirmar el SSRF**
-- Ingresa la URL `http://34.51.13.20:8080/latest/meta-data/` en el formulario.
-- Si la aplicación devuelve información del servicio de metadata de AWS, confirma que es vulnerable a SSRF.
+![image](https://github.com/user-attachments/assets/bf965be2-8bca-451a-a51a-0b0b6c6d34fa)
 
----
+
+#### **Paso 3**
 
 ### **2. Explotación**
 
