@@ -4,6 +4,7 @@
 - Este ultimo es vulnerable a Server-Side Request Forgery (SSRF)
 - En el URL checker, ponermos http://169.254.169.254/latest/meta-data/ lo que comunmente es el vector de entrada de esta vuln.
 - Al acceder nos da la siguiente pista
+  
   ![image](https://github.com/user-attachments/assets/07ee8a90-8731-41e3-9f2c-895f4c3673f4)
 
 
