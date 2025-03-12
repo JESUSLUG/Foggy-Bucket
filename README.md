@@ -1,4 +1,4 @@
-# ssfr-aws-lab
+# Foggy-Bucket
 
 El laboratorio se ejecuta con 
   ```bash
