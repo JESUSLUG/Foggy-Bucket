@@ -30,7 +30,7 @@ def check_url():
         return "Please provide a URL", 400
 
     # Si la URL ingresada es la específica, devolvemos las credenciales
-    if url == "http://34.51.13.20:8080/latest/meta-data/iam/security-credentials/":
+    if url == "http://169.254.169.254/latest/meta-data/":
         return Response(AWS_CREDENTIALS, mimetype="text/plain")
 
     # Para otras URLs, hacer la petición real
